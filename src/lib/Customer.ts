@@ -11,6 +11,10 @@ interface ICustomer {
     bvn: string
 }
 
+interface ICustomerId {
+    customerID: string
+}
+
 export class Customer extends BaseLib {
     protected readonly path: string;
 
@@ -24,4 +28,29 @@ export class Customer extends BaseLib {
             console.log(err)
         })
     }
+
+    async getCustomers(callback?: any) {
+        return this.sendRequest(this.axios.get(`${this.path}`), callback).catch(err => {
+            console.log(err);
+        })
+    }
+
+    async getCustomerById(customerID: ICustomerId, callback?: any) {
+        return this.sendRequest(this.axios.get(`${this.path}/${customerID}`), callback).catch(err => {
+            console.log(err);
+        })
+    }
+
+    async getMeansOfIdentification(callback?: any) {
+        return this.sendRequest(this.axios.get(`${this.path}/means/identity`), callback).catch(err => {
+            // console.log(err)
+        })
+    }
+
+    async revalidateCustomerKYC(customerID: ICustomerId, callback?: any) {
+        return this.sendRequest(this.axios.get(`${this.path}/kyc/revalidate/${customerID}`), callback).catch(err => {
+            console.log(err)
+        })
+    }
+
 }

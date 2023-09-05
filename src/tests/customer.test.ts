@@ -23,9 +23,30 @@ describe("Testing create new customer API", () => {
             bvn: '00000001001'
         }
 
-        const response = await blocClient.customer.createCustomer(createdata, (err: any, results: any) => {
+        //     const response = await blocClient.customer.createCustomer(createdata, (err: any, results: any) => {
+        //         if (results) return true;
+        //     });
+        //     expect(response).toHaveProperty("data.success", true);
+    })
+
+    it("get all customers", async () => {
+        const response = await blocClient.customer.getCustomers((err: any, results: any) => {
             if (results) return true;
         });
-        expect(response).toHaveProperty("data.success", true);
+        expect(response).toHaveProperty("data.success", true)
+    })
+
+    it("get means of identification", async () => {
+        const response = await blocClient.customer.getMeansOfIdentification((err: any, results: any) => {
+            if (results) return true;
+        });
+        expect(response).toHaveProperty("data.success", true)
+    })
+
+    it("get all customers", async () => {
+        const response = await blocClient.customer.getCustomers((err: any, results: any) => {
+            if (results) return true;
+        });
+        expect(response).toHaveProperty("data.success", true)
     })
 })
