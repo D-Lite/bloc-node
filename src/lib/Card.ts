@@ -42,7 +42,7 @@ interface IWithdrawCard {
 }
 
 
-export class Cards extends BaseLib {
+export class Card extends BaseLib {
     protected readonly path: string;
 
     constructor(protected readonly axios: AxiosInstance) {
