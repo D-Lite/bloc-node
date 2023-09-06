@@ -7,7 +7,7 @@ beforeEach(async () => {
 
 
 const blocClient = new Bloc({
-    secretKey: "live_sk_lfvdiiigf2303201",
+    secretKey: "live_sk_lfvdiiigf2303201"
 });
 
 
