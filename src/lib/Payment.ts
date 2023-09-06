@@ -18,7 +18,7 @@ interface IPaymentEdit {
 }
 
 
-export class Misc extends BaseLib {
+export class Payment extends BaseLib {
     protected readonly path: string;
 
     constructor(protected readonly axios: AxiosInstance) {

@@ -10,6 +10,8 @@ import { Transfer } from "./lib/Transfer";
 import { Transaction } from "./lib/Transaction";
 import { Checkout } from "./lib/Checkout";
 import { Simulation } from "./lib/Simulation";
+import { Payment } from "./lib/Payment";
+import { Beneficiary } from "./lib/Beneficiary";
 
 export class Bloc {
     public apiURL = "https://api.blochq.io/v1"
@@ -24,6 +26,8 @@ export class Bloc {
     public transaction: Transaction
     public checkout: Checkout
     public simulation: Simulation
+    public payment: Payment
+    public beneficiary: Beneficiary
 
     constructor(options: { secretKey: string }) {
         const axios = Axios.create({
@@ -46,5 +50,8 @@ export class Bloc {
         this.transaction = new Transaction(axios);
         this.checkout = new Checkout(axios);
         this.simulation = new Simulation(axios);
+        this.payment = new Payment(axios);
+        this.beneficiary = new Beneficiary(axios);
+
     }
 }
