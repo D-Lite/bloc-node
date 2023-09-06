@@ -5,6 +5,7 @@ import { Account } from "./lib/Account";
 import { Bill } from "./lib/Bill";
 import { Wallet } from "./lib/Wallet";
 import { Card } from "./lib/Card";
+import { Dispute } from "./lib/Dispute";
 
 
 export class Bloc {
@@ -15,6 +16,7 @@ export class Bloc {
     public bill: Bill
     public wallet: Wallet
     public card: Card
+    public dispute: Dispute
 
     constructor(options: { secretKey: string }) {
         const axios = Axios.create({
@@ -32,5 +34,6 @@ export class Bloc {
         this.bill = new Bill(axios);
         this.wallet = new Wallet(axios);
         this.card = new Card(axios);
+        this.dispute = new Dispute(axios);
     }
 }
