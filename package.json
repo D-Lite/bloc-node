@@ -1,6 +1,6 @@
 {
   "name": "blochq-node",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A node js library for Bloc banking-as-a-service api",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -32,9 +32,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/D-Lite/bloc-node"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "url": "git+https://github.com/D-Lite/bloc-node.git"
   }
 }
