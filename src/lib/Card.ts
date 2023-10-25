@@ -57,7 +57,7 @@ export class Card extends BaseLib {
         })
     }
 
-    async getCardsById(cardID: ICardId, callback?: any) {
+    async getCardsById(cardID: ICardId["cardID"], callback?: any) {
         return this.sendRequest(this.axios.get(`${this.path}/${cardID}`), callback).catch(err => {
             console.log(err)
         })
@@ -75,32 +75,32 @@ export class Card extends BaseLib {
         })
     }
 
-    async getCardSecureData(cardID: ICardId, callback?: any) {
+    async getCardSecureData(cardID: ICardId["cardID"], callback?: any) {
         return this.sendRequest(this.axios.get(`${this.path}/secure-data/${cardID}`), callback).catch(err => {
             console.log(err)
         })
     }
 
-    async changeCardPin(cardID: ICardId, data: ICardPin, callback?: any) {
+    async changeCardPin(cardID: ICardId["cardID"], data: ICardPin, callback?: any) {
         return this.sendRequest(this.axios.put(`${this.path}/change-pin/${cardID}`, data), callback).catch(err => {
             console.log(err)
         })
     }
 
-    async freezeCard(cardID: ICardId, callback?: any) {
+    async freezeCard(cardID: ICardId["cardID"], callback?: any) {
         return this.sendRequest(this.axios.put(`${this.path}/freeze/${cardID}`), callback).catch(err => {
             console.log(err)
         })
     }
 
-    async unFreezeCard(cardID: ICardId, callback?: any) {
-        return this.sendRequest(this.axios.put(`${this.path}/unfeeze/${cardID}`), callback).catch(err => {
+    async unFreezeCard(cardID: ICardId["cardID"], callback?: any) {
+        return this.sendRequest(this.axios.put(`${this.path}/unfreeze/${cardID}`), callback).catch(err => {
             console.log(err)
         })
     }
 
-    async blockCard(cardID: ICardId, data: IBlockCardData, callback?: any) {
-        return this.sendRequest(this.axios.put(`${this.path}/block/${cardID}`, data), callback).catch(err => {
+    async blockCard(id: ICardId["cardID"], data: IBlockCardData, callback?: any) {
+        return this.sendRequest(this.axios.put(`${this.path}/block/${id}`, data), callback).catch(err => {
             console.log(err)
         })
     }
@@ -111,19 +111,19 @@ export class Card extends BaseLib {
         })
     }
 
-    async unlinkCardFromFixedAccount(cardID: ICardId, callback?: any) {
+    async unlinkCardFromFixedAccount(cardID: ICardId["cardID"], callback?: any) {
         return this.sendRequest(this.axios.put(`${this.path}/fixed-account/unlink/${cardID}`), callback).catch(err => {
             console.log(err)
         })
     }
 
-    async fundCard(cardID: ICardId, data: IFundCard, callback?: any) {
+    async fundCard(cardID: ICardId["cardID"], data: IFundCard, callback?: any) {
         return this.sendRequest(this.axios.post(`${this.path}/fund/${cardID}`, data), callback).catch(err => {
             console.log(err)
         })
     }
 
-    async withdrawFromCard(cardID: ICardId, data: IWithdrawCard, callback?: any) {
+    async withdrawFromCard(cardID: ICardId["cardID"], data: IWithdrawCard, callback?: any) {
         return this.sendRequest(this.axios.post(`${this.path}/withdraw/${cardID}`, data), callback).catch(err => {
             console.log(err)
         })

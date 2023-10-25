@@ -2,8 +2,8 @@ import { AxiosInstance, AxiosError } from "axios";
 import { BaseLib } from "../base/BaseIndex";
 
 interface ICollectionRulesObject {
-    amount: string,
-    frequency: string
+    amount: number,
+    frequency: number
 }
 
 interface IFixedAccountData {
@@ -59,7 +59,7 @@ export class Account extends BaseLib {
         })
     }
 
-    async getAccountById(accountID: IAccountID, callback?: any) {
+    async getAccountById(accountID: IAccountID["accountID"], callback?: any) {
         return this.sendRequest(this.axios.get(`${this.path}/${accountID}`), callback).catch(err => {
             // console.log(err);
         })
@@ -71,7 +71,7 @@ export class Account extends BaseLib {
         })
     }
 
-    async getCustomerAccounts(customerID: ICustomerID, callback?: any) {
+    async getCustomerAccounts(customerID: ICustomerID["customerID"], callback?: any) {
         return this.sendRequest(this.axios.get(`${this.path}/customers/accounts/${customerID}`), callback).catch(err => {
             console.log(err);
         })

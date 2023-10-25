@@ -1,0 +1,82 @@
+import { Bloc } from "..";
+
+beforeEach(async () => {
+    jest.setTimeout(100000);
+})
+
+
+
+const blocClient = new Bloc({
+    secretKey: "live_sk_lfvdiiigf2303201",
+});
+
+
+describe("Test Bills API", () => {
+
+    it("get supported bills", async () => {
+        const response = await blocClient.bill.getSupportedBills((err: any, results: any) => {
+            if (results) return true;
+        });
+        expect(response).toHaveProperty("data.success", true)
+    })
+
+    it("get supported operators", async () => {
+        const data = {
+            bill: "electricity"
+        }
+
+        const response = await blocClient.bill.getSupportedOperators(data.bill, (err: any, results: any) => {
+            if (results) return true;
+        });
+        expect(response).toHaveProperty("data.success", true)
+    })
+
+    it("get operator products", async () => {
+        const data = {
+            operatorID: "op_ZYETpzSYgPHVZ8YJPjKcVh",
+            bill: "electricity"
+        }
+
+        const response = await blocClient.bill.getOperatorProducts(data.operatorID, data.bill, (err: any, results: any) => {
+            if (results) return true;
+        });
+        expect(response).toHaveProperty("data.success", true)
+    })
+
+    // it("get customer device validation", async () => {
+    //     const operatorID = "op_ZYETpzSYgPHVZ8YJPjKcVh"
+    //     const data = {
+    //         meter_type: "prepaid",
+    //         bill: "electricity",
+    //         device_number: "04283290809"
+    //     }
+
+    //     const response = await blocClient.bill.getCustomerDeviceValidation(operatorID, data, (err: any, results: any) => {
+    //         if (results) return true;
+    //     });
+    //     expect(response).toHaveProperty("data.success", true)
+    // })
+
+    // it("make payment", async () => {
+    //     const data = {
+    //         "bill": "electricity",
+    //         "amount": 0,
+    //         "product_id": "prd_WVFqdQmk6sAkrgkU8Ep7qK",
+    //         "operator_id": "op_tHvaAHp85mTsRtEU2yqxLM",
+    //         "account_id": "640b045929eb9cf45bc720d2",
+    //         "device_details": {
+    //             meter_type: "prepaid",
+    //             beneficiary_msisdn: "04283290809",
+    //             device_number: "08163830893"
+    //         },
+    //         "meta_data": {
+    //             "key": "value"
+    //         }
+    //     }
+    //     const response = await blocClient.bill.makePayment(data.bill, data, (err: any, results: any) => {
+    //         if (results) return true;
+    //     });
+    //     expect(response).toHaveProperty("data.success", true)
+    // })
+
+})

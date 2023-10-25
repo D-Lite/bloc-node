@@ -15,6 +15,11 @@ interface ICustomerID {
     customerID: string
 }
 
+interface IWalletDebit {
+    walletID: string,
+    amount: number
+}
+
 export class Wallet extends BaseLib {
     protected readonly path: string;
 
@@ -35,15 +40,21 @@ export class Wallet extends BaseLib {
         })
     }
 
-    async getWalletById(walletID: IWalledId, callback?: any) {
+    async getWalletById(walletID: IWalledId["walletID"], callback?: any) {
         return this.sendRequest(this.axios.get(`${this.path}/${walletID}`), callback).catch(err => {
             console.log(err);
         })
     }
 
-    async getCustomerWallets(customerID: ICustomerID, callback?: any) {
+    async getCustomerWallets(customerID: ICustomerID["customerID"], callback?: any) {
         return this.sendRequest(this.axios.get(`${this.path}/customers/${customerID}`), callback).catch(err => {
             console.log(err);
+        })
+    }
+
+    async debitWallet(data: IWalletDebit, callback?: any) {
+        return this.sendRequest(this.axios.post(`${this.path}/debit/manual`, data), callback).catch(err => {
+            console.log(err)
         })
     }
 }

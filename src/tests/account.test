@@ -1,10 +1,8 @@
-const { Bloc } = require('../index');
+import { Bloc } from "..";
 
 beforeEach(async () => {
     jest.setTimeout(100000);
 })
-
-
 
 const blocClient = new Bloc({
     secretKey: "live_sk_lfvdiiigf2303201",

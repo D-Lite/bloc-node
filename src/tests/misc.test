@@ -1,4 +1,4 @@
-const { Bloc } = require('../index');
+import { Bloc } from "..";
 
 beforeEach(async () => {
     jest.setTimeout(100000);

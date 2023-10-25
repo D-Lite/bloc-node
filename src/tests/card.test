@@ -1,0 +1,157 @@
+import { Bloc } from "..";
+
+beforeEach(async () => {
+    jest.setTimeout(100000);
+})
+
+
+
+const blocClient = new Bloc({
+    secretKey: "live_sk_lfvdiiigf2303201",
+});
+
+
+describe("Test Card API", () => {
+
+    // it("issue card", async () => {
+    //     const data = {
+    //         customer_id: "64c9e81497880d4b259cec77",
+    //         brand: "Verve"
+    //     }
+
+    //     const response = await blocClient.card.issueCard(data, (err: any, results: any) => {
+    //         if (results) return true;
+    //     });
+    //     expect(response).toHaveProperty("data.success", true)
+    // })
+
+    // it("get cards", async () => {
+    //     const response = await blocClient.card.getCards((err: any, results: any) => {
+    //         if (results) return true;
+    //         console.log(results)
+    //     });
+    //     expect(response).toHaveProperty("data.success", true)
+    // })
+
+    // it("get card by ID", async () => {
+    //     const cardID = "6538120db5a48fc5824cb349"
+        
+    //     const response = await blocClient.card.getCardsById(cardID, (err: any, results: any) => {
+    //         if (results) return true;
+    //     });
+    //     expect(response).toHaveProperty("data.success", true)
+    // })
+
+    // it("gets customer cards", async () => {
+    //     const data = {
+    //         customerID: "64c9e81497880d4b259cec77"
+    //     }
+    //     const response = await blocClient.card.getCustomerCards(data, (err: any, results: any) => {
+    //         if (results) return true;
+    //     });
+    //     expect(response).toHaveProperty("data.success", true)
+    // })
+
+    // it("gets card secure data", async () => {
+    //     const cardID = "6538120db5a48fc5824cb349"
+        
+    //     const response = await blocClient.card.getCardSecureData(cardID, (err: any, results: any) => {
+    //         if (results) return true;
+    //     });
+    //     expect(response).toHaveProperty("data.success", true)
+    // })
+
+    // it("changes card pin", async () => {
+    //     const data = {
+    //         cardID: "6538120db5a48fc5824cb349",
+    //         old_pin: "3766",
+    //         new_pin: "1001"
+    //     }
+    //     const response = await blocClient.card.changeCardPin(data.cardID, data, (err: any, results: any) => {
+    //         if (results) return true;
+    //     });
+    //     expect(response).toHaveProperty("data.success", true)
+    // })
+
+    // it("freezes card", async () => {
+    //     const data = {
+    //         cardID: "6538120db5a48fc5824cb349",
+    //     }
+    //     const response = await blocClient.card.freezeCard(data.cardID, (err: any, results: any) => {
+    //         if (results) return true;
+    //     });
+    //     expect(response).toHaveProperty("data.success", true)
+    // })
+
+    // it("unfreezes card", async () => {
+    //     const data = {
+    //         cardID: "6538120db5a48fc5824cb349",
+    //     }
+    //     const response = await blocClient.card.unFreezeCard(data.cardID, (err: any, results: any) => {
+    //         if (results) return true;
+    //     });
+    //     expect(response).toHaveProperty("data.success", true)
+    // })
+
+    // it("block card", async () => {
+    //     const data = {
+    //         cardID: "6538120db5a48fc5824cb349",
+    //         account_id: "000000000000000000000000",
+    //         reason: "testing"
+    //     }
+    //     const response = await blocClient.card.blockCard(data.cardID, data, (err: any, results: any) => {
+    //         if (results) return true;
+    //     });
+    //     expect(response).toHaveProperty("data.success", true)
+    // })
+
+    // it("link card with fixed account", async () => {
+    //     const data = {
+    //         card_id: "6538120db5a48fc5824cb349",
+    //         account_id: "000000000000000000000000",
+    //     }
+    //     const response = await blocClient.card.linkCardWithFixedAccount( data, (err: any, results: any) => {
+    //         if (results) return true;
+    //     });
+    //     expect(response).toHaveProperty("data.success", true)
+    // })
+
+    // it("unlink card with fixed account", async () => {
+    //     const data = {
+    //         cardID: "6538120db5a48fc5824cb349",
+    //     }
+    //     const response = await blocClient.card.unlinkCardFromFixedAccount( data.cardID, (err: any, results: any) => {
+    //         if (results) return true;
+    //     });
+    //     expect(response).toHaveProperty("data.success", true)
+    // })
+
+    // it("funds card", async () => {
+    //     const data = {
+    //         cardID: "6538120db5a48fc5824cb349",
+    //         amount: 0,
+    //         from_account_id: "000000000000000000000000",
+    //         currency: "NGN"
+    //     }
+
+    //     const response = await blocClient.card.fundCard(data.cardID, data, (err: any, results: any) => {
+    //         if(results) return true;
+    //     });
+    //     expect(response).toHaveProperty("data.success", true)
+    // })
+   
+    // it("withdraws from card", async () => {
+    //     const data = {
+    //         cardID: "6538120db5a48fc5824cb349",
+    //         amount: 0,
+    //         to_account_id: "000000000000000000000000",
+    //         currency: "NGN"
+    //     }
+
+    //     const response = await blocClient.card.withdrawFromCard(data.cardID, data, (err: any, results: any) => {
+    //         if(results) return true;
+    //     });
+    //     expect(response).toHaveProperty("data.success", true)
+    // })
+   
+})

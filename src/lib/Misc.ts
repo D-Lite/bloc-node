@@ -6,10 +6,6 @@ interface IResolveAccountData {
     bank_code: string
 }
 
-interface ICurrencyPair {
-    currencyPair: string
-}
-
 export class Misc extends BaseLib {
     protected readonly path: string;
 
@@ -31,7 +27,7 @@ export class Misc extends BaseLib {
         })
     }
 
-    async getExchangeRate(currencyPair: ICurrencyPair, callback?: any) {
+    async getExchangeRate(currencyPair: string, callback?: any) {
         return this.sendRequest(this.axios.get(`/rates/currencies/${currencyPair}`), callback).catch(err => {
             console.log(err)
         })

@@ -1,0 +1,65 @@
+import { Bloc } from "..";
+
+beforeEach(async () => {
+    jest.setTimeout(100000);
+})
+
+
+
+const blocClient = new Bloc({
+    secretKey: "live_sk_lfvdiiigf2303201",
+});
+
+
+describe("Test Wallets API", () => {
+
+    it("get wallets", async () => {
+        const response = await blocClient.wallet.getWallets((err: any, results: any) => {
+            if (results) return true;
+        });
+        expect(response).toHaveProperty("data.success", true)
+    })
+
+    it("creates wallets", async () => {
+        const data = {
+            "customer_id": "64c9e81497880d4b259cec77",
+            "preferred_bank": "Banc Corp",
+            "alias": "business"
+        }
+        const response = await blocClient.wallet.createWallet(data, (err: any, results: any) => {
+            if (results) return true;
+        });
+        expect(response).toHaveProperty("data.success", true)
+    })
+
+    it("get wallet by ID", async () => {
+        const data = "64f7bcba5f68b9f2b72458e3"
+
+        const response = await blocClient.wallet.getWalletById(data, (err: any, results: any) => {
+            if (results) return true;
+        });
+        expect(response).toBeTruthy()
+
+    })
+ 
+    it("gets customer wallets", async () => {
+        const data = "64c9e81497880d4b259cec77"
+
+        const response = await blocClient.wallet.getCustomerWallets(data, (err: any, results: any) => {
+            if (results) return true;
+        });
+        expect(response).toHaveProperty("data.success", true)
+    }) 
+
+    // it("debit wallet", async () => {
+    //     const data = {
+    //         "walletID": "64f7bcba5f68b9f2b72458e3",
+    //         "amount": 0
+    //     }
+
+    //     const response = await blocClient.wallet.debitWallet(data, (err: any, results: any) => {
+    //         if (results) return true;
+    //     });
+    //     expect(response.data.success).toBeTruthy()
+    // })
+})
