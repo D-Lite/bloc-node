@@ -1,5 +1,5 @@
 {
-  "name": "bloc-node",
+  "name": "blochq-node",
   "version": "1.0.0",
   "description": "A node js library for Bloc banking-as-a-service api",
   "main": "./dist/index.js",
