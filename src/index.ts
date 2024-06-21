@@ -13,6 +13,8 @@ import { Simulation } from "./lib/Simulation";
 import { Payment } from "./lib/Payment";
 import { Beneficiary } from "./lib/Beneficiary";
 
+import Events = require("./lib/Webhook");
+
 export class Bloc {
     public apiURL = "https://api.blochq.io/v1"
     public customer: Customer
@@ -28,6 +30,8 @@ export class Bloc {
     public simulation: Simulation
     public payment: Payment
     public beneficiary: Beneficiary
+
+    public events: Events;
 
     constructor(options: { secretKey: string }) {
         const axios = Axios.create({
@@ -52,6 +56,8 @@ export class Bloc {
         this.simulation = new Simulation(axios);
         this.payment = new Payment(axios);
         this.beneficiary = new Beneficiary(axios);
+
+        this.events = new Events(options.secretKey);
 
     }
 }
